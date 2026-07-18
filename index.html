@@ -547,7 +547,7 @@
 
   async function loadGallery(){
     try{
-      const res = await fetch('https://res.cloudinary.com/' + CLOUD_NAME + '/image/list/' + GALLERY_TAG + '.json?_=' + Date.now(), { cache: 'no-store' });
+      const res = await fetch('/api/gallery?_=' + Date.now(), { cache: 'no-store' });
       if(!res.ok){ throw new Error('Liste indisponible (' + res.status + ')'); }
       const data = await res.json();
       const resources = (data && data.resources) ? data.resources : [];
